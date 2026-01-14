@@ -1,0 +1,92 @@
+# =============================================================================
+# Terraform Variables Example File
+# Copy this file to terraform.tfvars and update with your values
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# REQUIRED: GCP Project Configuration
+# -----------------------------------------------------------------------------
+
+# Your GCP Project ID (REQUIRED - must be changed)
+project_id = "your-gcp-project-id"
+
+# GCP Region for resource deployment
+region = "us-central1"
+
+# GCP Zone for zonal resources
+zone = "us-central1-a"
+
+# -----------------------------------------------------------------------------
+# Environment Configuration
+# -----------------------------------------------------------------------------
+
+# Environment name: dev, staging, or prod
+environment = "dev"
+
+# -----------------------------------------------------------------------------
+# Network Configuration
+# -----------------------------------------------------------------------------
+
+# VPC Network name
+vpc_name = "wordpress-vpc"
+
+# Main subnet CIDR range
+subnet_cidr = "10.0.0.0/24"
+
+# Secondary CIDR range for GKE pods
+pods_cidr = "10.1.0.0/16"
+
+# Secondary CIDR range for GKE services
+services_cidr = "10.2.0.0/20"
+
+# -----------------------------------------------------------------------------
+# GKE Cluster Configuration
+# -----------------------------------------------------------------------------
+
+# GKE cluster name
+cluster_name = "wordpress-gke-cluster"
+
+# Kubernetes version (use "latest" for latest stable)
+kubernetes_version = "latest"
+
+# Number of nodes in the cluster (1-10 for free tier)
+node_count = 2
+
+# Machine type for nodes
+# Options: e2-micro, e2-small, e2-medium, e2-standard-2
+# e2-medium is recommended for WordPress workloads
+node_machine_type = "e2-medium"
+
+# Disk size for each node in GB
+node_disk_size_gb = 50
+
+# Disk type: pd-standard (HDD) or pd-ssd (SSD)
+node_disk_type = "pd-standard"
+
+# Enable GKE Autopilot mode (set to true for fully managed nodes)
+enable_autopilot = false
+
+# -----------------------------------------------------------------------------
+# Application Configuration
+# -----------------------------------------------------------------------------
+
+# Kubernetes namespace for WordPress
+wordpress_namespace = "wordpress"
+
+# Storage size for MySQL database
+mysql_storage_size = "10Gi"
+
+# Storage size for WordPress files
+wordpress_storage_size = "10Gi"
+
+# -----------------------------------------------------------------------------
+# Resource Labels
+# -----------------------------------------------------------------------------
+
+labels = {
+  project     = "wordpress-gke"
+  managed-by  = "terraform"
+  owner       = "mohd-sabir"
+  course      = "mca-final-project"
+}
+

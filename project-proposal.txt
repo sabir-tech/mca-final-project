@@ -1,0 +1,121 @@
+PROJECT TITLE
+Automated Deployment of Multi-tier WordPress Application on GKE using Terraform
+
+STUDENT INFORMATION
+Student Name : Mohd Sabir
+
+ABSTRACT
+
+This project focuses on establishing a comprehensive infrastructure automation and application deployment pipeline using Terraform and Google Cloud Platform (GCP). The primary objective is to provision all required GCP resources—including Google Kubernetes Engine (GKE), Virtual Private Cloud (VPC), subnets, firewall rules, and Identity and Access Management (IAM) roles—through Infrastructure as Code (IaC) using Terraform.
+
+After provisioning the infrastructure, a multi-tier open-source application consisting of WordPress as the frontend and MySQL as the backend will be deployed on the Kubernetes cluster. The project demonstrates how DevOps principles, container orchestration, and cloud-native technologies can be integrated to achieve automated, scalable, and repeatable deployments.
+
+Key concepts explored include containerization, Kubernetes services, persistent storage, secret management, and environment lifecycle management. This proof-of-concept highlights the reliable creation and teardown of production-like environments using Terraform scripts and Kubernetes YAML manifests.
+
+ASSUMPTIONS / DECLARATIONS
+
+A GCP Free Tier account will be used for all development and testing activities.
+
+All infrastructure components such as VPC, GKE cluster, service accounts, and storage will be provisioned using Terraform.
+
+Application components (WordPress and MySQL) will be deployed using Kubernetes manifests on the GKE cluster.
+
+The system is developed for educational and proof-of-concept purposes and is not optimized for production-scale or high-availability workloads.
+
+A standard development laptop running Windows or Linux will be used for development and CLI operations.
+
+MAIN OBJECTIVES / DELIVERABLES
+
+Automate the creation and management of GCP infrastructure using Terraform.
+
+Deploy a multi-tier containerized WordPress application with a MySQL backend on GKE.
+
+Implement core Kubernetes features such as Persistent Volumes, ConfigMaps, Secrets, and LoadBalancer services.
+
+Demonstrate practical implementation of IaC and DevOps principles.
+
+Provide complete documentation and architecture diagrams explaining the deployment workflow.
+
+TIMELINE AND MILESTONES
+
+Week 1 – 2
+
+Understanding project scope, GCP basics, and Terraform fundamentals
+
+Week 3
+
+GCP account setup, IAM configuration, and enabling required APIs
+
+Week 4
+
+Writing Terraform code for VPC, subnets, firewall rules, and service accounts
+
+Week 5 – 6
+
+Terraform-based GKE cluster creation
+
+Week 7 – 8
+
+Dockerizing WordPress and MySQL (if required) and creating Kubernetes YAML manifests
+
+Week 9
+
+Deploying the application to GKE using kubectl or GitOps approach
+
+Week 10
+
+Testing application availability and functionality using LoadBalancer IP
+
+Week 11
+
+Implementing Persistent Volumes and Secret management
+
+Week 12 – 13
+
+Preparing project documentation and architecture diagrams
+
+Week 14 onwards
+
+Final report submission, presentation, and code review
+
+TOOLS TO BE USED
+
+Software / Hardware	Description
+Terraform	Infrastructure as Code tool for GCP
+Google Cloud Platform	Cloud provider and deployment environment
+Google Kubernetes Engine	Kubernetes-based container orchestration
+Docker	Containerization of WordPress and MySQL
+kubectl	Kubernetes CLI tool
+Visual Studio Code	Code editor / IDE
+Git & GitHub	Version control and source code management
+Laptop / Desktop	Minimum 4 GB RAM with internet connectivity
+
+LEARNING INVOLVED
+
+Infrastructure as Code (IaC)
+
+Automating infrastructure provisioning using Terraform
+
+GCP Networking and IAM
+
+Designing secure and scalable cloud environments
+
+Kubernetes Workloads
+
+Managing Pods, Services, Persistent Volumes, and Secrets
+
+Helm (Optional)
+
+Managing complex Kubernetes deployments using Helm charts
+
+CI/CD and GitOps (Optional)
+
+Exploring automated deployment pipelines using GitHub Actions or ArgoCD
+
+DevOps Principles
+
+Applying automation, reproducibility, and lifecycle management
+
+Documentation and Cloud Architecture
+
+Creating structured technical documentation and architecture diagrams

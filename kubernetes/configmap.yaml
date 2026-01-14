@@ -1,0 +1,56 @@
+# =============================================================================
+# Kubernetes ConfigMaps for WordPress Application
+# =============================================================================
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  namespace: wordpress
+  labels:
+    app: mysql
+    tier: database
+data:
+  # MySQL configuration
+  my.cnf: |
+    [mysqld]
+    # Character set and collation
+    character-set-server=utf8mb4
+    collation-server=utf8mb4_unicode_ci
+    
+    # IMPORTANT: Use mysql_native_password for WordPress/PHP compatibility
+    # MySQL 8.0 defaults to caching_sha2_password which causes connection issues
+    default_authentication_plugin=mysql_native_password
+    
+    # Performance tuning
+    max_connections=200
+    innodb_buffer_pool_size=256M
+    innodb_log_file_size=64M
+    innodb_flush_log_at_trx_commit=2
+    
+    # Security
+    skip-name-resolve
+    
+    [client]
+    default-character-set=utf8mb4
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wordpress-config
+  namespace: wordpress
+  labels:
+    app: wordpress
+    tier: frontend
+data:
+  # WordPress PHP configuration
+  uploads.ini: |
+    file_uploads = On
+    memory_limit = 256M
+    upload_max_filesize = 64M
+    post_max_size = 64M
+    max_execution_time = 600
+    max_input_time = 600
+

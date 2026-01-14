@@ -1,0 +1,26 @@
+# =============================================================================
+# Kustomization file for easy deployment
+# Apply all resources: kubectl apply -k .
+# =============================================================================
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: wordpress
+
+resources:
+  - namespace.yaml
+  - secrets.yaml
+  - configmap.yaml
+  - mysql/pvc.yaml
+  - mysql/deployment.yaml
+  - mysql/service.yaml
+  - wordpress/pvc.yaml
+  - wordpress/deployment.yaml
+  - wordpress/service.yaml
+  - wordpress/hpa.yaml
+
+commonLabels:
+  project: mca-final-project
+  managed-by: kustomize
+

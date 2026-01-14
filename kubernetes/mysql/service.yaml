@@ -1,0 +1,24 @@
+# =============================================================================
+# MySQL Service
+# Internal ClusterIP service for MySQL database
+# =============================================================================
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+  namespace: wordpress
+  labels:
+    app: mysql
+    tier: database
+spec:
+  type: ClusterIP  # Internal service, not exposed externally
+  selector:
+    app: mysql
+    tier: database
+  ports:
+    - port: 3306
+      targetPort: 3306
+      protocol: TCP
+      name: mysql
+

@@ -1,0 +1,22 @@
+# =============================================================================
+# MySQL Persistent Volume Claim
+# Provides persistent storage for MySQL database
+# =============================================================================
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+  namespace: wordpress
+  labels:
+    app: mysql
+    tier: database
+spec:
+  accessModes:
+    - ReadWriteOnce
+  # Use the standard storage class provided by GKE
+  storageClassName: standard-rwo
+  resources:
+    requests:
+      storage: 10Gi
+

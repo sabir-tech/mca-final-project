@@ -1,0 +1,12 @@
+# =============================================================================
+# Kubernetes Namespace for WordPress Application
+# =============================================================================
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+    project: mca-final-project
+    managed-by: kubectl
+

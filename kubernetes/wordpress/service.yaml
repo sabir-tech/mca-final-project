@@ -1,0 +1,32 @@
+# =============================================================================
+# WordPress Service
+# LoadBalancer service to expose WordPress externally
+# =============================================================================
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+  namespace: wordpress
+  labels:
+    app: wordpress
+    tier: frontend
+  annotations:
+    # GKE-specific annotations for load balancer
+    cloud.google.com/load-balancer-type: "External"
+spec:
+  type: LoadBalancer
+  selector:
+    app: wordpress
+    tier: frontend
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  # Session affinity for consistent user sessions
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 3600
+

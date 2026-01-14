@@ -1,0 +1,22 @@
+# =============================================================================
+# WordPress Persistent Volume Claim
+# Provides persistent storage for WordPress files (uploads, themes, plugins)
+# =============================================================================
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wordpress-pvc
+  namespace: wordpress
+  labels:
+    app: wordpress
+    tier: frontend
+spec:
+  accessModes:
+    - ReadWriteOnce
+  # Use the standard storage class provided by GKE
+  storageClassName: standard-rwo
+  resources:
+    requests:
+      storage: 10Gi
+
